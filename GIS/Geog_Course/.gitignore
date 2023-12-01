@@ -1,0 +1,10 @@
+_build/
+private/
+**/.ipynb_checkpoints/
+**/*.db
+**/*.csv
+**/*.parquet
+**/*.json
+**/*.geojson
+**/cities.*
+**/nyc*
