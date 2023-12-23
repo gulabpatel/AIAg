@@ -21,3 +21,4 @@ A nice collection of free #GIS data sources "10 𝐅𝐫𝐞𝐞 𝐆𝐈𝐒 �
 10. 𝐓𝐞𝐫𝐫𝐚 𝐏𝐨𝐩𝐮𝐥𝐮𝐬: https://terra.ipums.org
 
 𝐑𝐞𝐚𝐝 𝐭𝐡𝐞 𝐟𝐮𝐥𝐥 𝐚𝐫𝐭𝐢𝐜𝐥𝐞 𝐡𝐞𝐫𝐞: https://lnkd.in/dFbCFwcK
+![DataSource](https://github.com/gulabpatel/AIAg/blob/main/GIS_datasource.jpg?raw=true)
