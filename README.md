@@ -43,3 +43,51 @@ A nice collection of free #GIS data sources "10 𝐅𝐫𝐞𝐞 𝐆𝐈𝐒 �
 - ipysigma - https://lnkd.in/dP55J5et
 - Py3Plex - https://lnkd.in/dhwe7f_g
 - net wulf - https://lnkd.in/dxrHAm2P
+
+## 9 use cases of Deep Learning with Imagery and tips on how to get started.
+
+1. Extracting building footprints
+Instance Segmentation
+Models: MaskRCNN
+
+2. Identifying new construction
+Change Detection
+Models: STA-Net ChangeDetector
+
+3. Classifying homes as damaged or not after a forest fire
+Object Classification
+Models: FeatureClassifier with ResNet, Inception, VGG backbones
+
+4. Detecting swimming pools
+Object Detection
+Models: SingleShotDetector(SSD), RetinaNet, YOLO, FasterRCNN, MMDetection
+
+5. Road extraction
+Road Extraction
+Models: MultiTaskRoadExtractor
+
+6. Crop Classification
+Imagery Time Series Classification
+Models: PSETAE
+
+7. Land cover classification
+Pixel Classification
+Models: UNetClassifier, PSPNetClassifier, DeepLab, MMSegmentation
+
+8. Mapping residential parcels
+Edge Detection
+Models: BDCNEdgeDetector, HEDEdgeDetector, ConnectNet
+
+9. Increasing (upscaling) image resolution
+Image Enhancement
+Models: SuperResolution
+
+How to start?
+
+1. Prepear your input imagery data, generate true-ortho with ArcGIS Reality for best accuracy.
+2. ArcGIS API for Python + arcgis.learn module - Functions for calling the Deep Learning Tools
+https://lnkd.in/dCfsifZh
+3. Explore and test pre-trained models - ArcGIS Living Atlas
+https://lnkd.in/dQsE5FXp
+4. Use ArcGIS tools to improve or train own models (see guide in each DLPK)
+5. Build own Apps & Solutions
