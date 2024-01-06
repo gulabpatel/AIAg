@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Water Quality Analysis</title>
+    <!-- CDN for Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous" />
+    <style>
+      /* Margin and Padding reset, setting up font */
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+      /* Making chat scrollable */
+      .chat-container {
+        max-height: 400px;
+        overflow-y: auto;
+        border: 1px solid lightgray;
+      }
+
+      .message {
+        padding: 10px;
+        border-radius: 10px;
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <header class="d-flex gap-5 mt-4 justify-content-center py-2">
+    <img
+      style="width: 3rem"
+      src="{{ url_for('static', path='images/logo.jpeg') }}"
+      alt="logo" />
+    <h1 class="text-center">Water Quality Analysis</h1>
+  </header>
+
+  <body>
+    <main class="mt-4 container-fluid">
+      <div class="row">
+        <div class="col-12 col-md-4">
+          <form
+            class="container"
+            method="post"
+            action="/predict"
+            onsubmit="prepareAndSubmit(event)">
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="ph"
+                >pH:</label
+              >
+              <input
+                class="form-control"
+                type="float"
+                step="0.00000000001"
+                name="ph"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Hardness"
+                >Hardness:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.0000000000000001"
+                name="Hardness"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Solids"
+                >Solids:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0000000000.00000000001"
+                name="Solids"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Chloramines"
+                >Chloramines:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.00000000001"
+                name="Chloramines"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Sulfate"
+                >Sulfate:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.00000000001"
+                name="Sulfate"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Conductivity"
+                >Conductivity:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.00000000001"
+                name="Conductivity"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Organic_carbon"
+                >Organic_carbon:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.00000000001"
+                name="Organic_carbon"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Trihalomethanes"
+                >Trihalomethanes:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.00000000001"
+                name="Trihalomethanes"
+                required />
+            </div>
+            <div class="row input-group mb-2">
+              <label
+                class="input-group-text col-7 col-sm-5 col-md-8 col-lg-6"
+                for="Turbidity"
+                >Turbidity:</label
+              >
+              <input
+                class="form-control"
+                type="number"
+                step="0.00000000001"
+                name="Turbidity"
+                required />
+            </div>
+            <input type="hidden" name="json_data" id="json_data" value="" />
+            <input
+              id="predict-button"
+              style="width: 100%; margin-left: -0.7rem"
+              class="btn btn-primary"
+              type="submit"
+              value="Predict" />
+          </form>
+          <!-- Template conditions from Jinja2 to conditionally render the text depending on irrigation parameters -->
+          {% if prediction is not none %}
+          <h2 class="text-center mt-2">Prediction Result:</h2>
+          <p class="text-center">
+            The water is {% if prediction == 1 %}good for irrigation{% else
+            %}not good for irrigation{% endif %}.
+          </p>
+          {% endif %}
+        </div>
+        <div class="col-12 col-md-7 mt-4 mt-md-0">
+          <div
+            class="chat-container rounded mt-4 bg-white text-center"
+            id="chat-container"></div>
+          <div class="input-group my-3">
+            <input
+              type="text"
+              class="form-control rounded-start"
+              id="user-message"
+              placeholder="Type your message..." />
+            <button
+              class="btn btn-outline-secondary rounded"
+              type="button"
+              id="send-gpt">
+              Send
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script>
+      // Clear localStorage at the beginning of page load
+      document.addEventListener("DOMContentLoaded", function () {
+        localStorage.clear()
+      })
+      function prepareAndSubmit(event) {
+        event.preventDefault() // Prevent the default form submission
+        // Create an object to hold the input values from the form
+        const soilData = {
+          ph: parseFloat(document.querySelector('input[name="ph"]').value),
+          Hardness: parseFloat(
+            document.querySelector('input[name="Hardness"]').value
+          ),
+          Solids: parseFloat(
+            document.querySelector('input[name="Solids"]').value
+          ),
+          Chloramines: parseFloat(
+            document.querySelector('input[name="Chloramines"]').value
+          ),
+          Sulfate: parseFloat(
+            document.querySelector('input[name="Sulfate"]').value
+          ),
+          Conductivity: parseFloat(
+            document.querySelector('input[name="Conductivity"]').value
+          ),
+          Organic_carbon: parseFloat(
+            document.querySelector('input[name="Organic_carbon"]').value
+          ),
+          Trihalomethanes: parseFloat(
+            document.querySelector('input[name="Trihalomethanes"]').value
+          ),
+          Turbidity: parseFloat(
+            document.querySelector('input[name="Turbidity"]').value
+          ),
+        }
+        // Set the hidden input field value to the JSON representation of the data
+        document.querySelector("#json_data").value = JSON.stringify(soilData)
+        // Convert the soilData object to a JSON string
+        const soilDataJSON = JSON.stringify(soilData)
+        // Store the JSON string in localStorage with a specific key
+        localStorage.setItem("soilData", soilDataJSON)
+        // Submit the form
+        event.target.submit()
+      }
+
+      // Retrieve the JSON string from localStorage
+      const storedSoilDataJSON = localStorage.getItem("soilData")
+
+      // Parse the JSON string back into an object
+      const storedSoilData = JSON.parse(storedSoilDataJSON)
+
+      //Retain values in the field after the form has been submitted
+      document.querySelector('input[name="ph"]').value = storedSoilData.ph
+      document.querySelector('input[name="Hardness"]').value =
+        storedSoilData.Hardness
+      document.querySelector('input[name="Solids"]').value =
+        storedSoilData.Solids
+      document.querySelector('input[name="Chloramines"]').value =
+        storedSoilData.Chloramines
+      document.querySelector('input[name="Sulfate"]').value =
+        storedSoilData.Sulfate
+      document.querySelector('input[name="Conductivity"]').value =
+        storedSoilData.Conductivity
+      document.querySelector('input[name="Organic_carbon"]').value =
+        storedSoilData.Organic_carbon
+      document.querySelector('input[name="Trihalomethanes"]').value =
+        storedSoilData.Trihalomethanes
+      document.querySelector('input[name="Turbidity"]').value =
+        storedSoilData.Turbidity
+
+      // Flag to track if an API request is in progress
+      let isApiRequestInProgress = false
+      let updatedHistory = ""
+
+      // Function to enable or disable the send button
+      function toggleSendButtonState(isEnabled) {
+        const sendButton = document.getElementById("send-gpt")
+        sendButton.disabled = !isEnabled
+      }
+      // Function for sending user messages to the server and updating the chat history
+      document
+        .getElementById("send-gpt")
+        .addEventListener("click", function () {
+          // Check if an API request is in progress, if so, return
+          if (isApiRequestInProgress) {
+            return
+          }
+
+          const userMessage = document.getElementById("user-message").value
+          const chatContainer = document.getElementById("chat-container")
+
+          // Create a new message element for the user message
+          const userMessageElement = document.createElement("div")
+          userMessageElement.classList.add(
+            "message",
+            "my-2",
+            "bg-primary",
+            "text-white",
+            "w-75"
+          )
+          userMessageElement.innerText = "You: " + userMessage
+          chatContainer.appendChild(userMessageElement)
+
+          if (userMessage) {
+            // Disable the send button during the API request
+            toggleSendButtonState(false)
+            // Send the user message to the server using AJAX or fetch
+            fetch("/chatbot/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                info: storedSoilData,
+                history: updatedHistory, // Pass the current chat history to the server
+                message: userMessage,
+              }),
+            })
+              .then((response) => response.text())
+              .then((data) => {
+                // Find the last occurrence of "Assistant:"
+                const lastIndex = data.lastIndexOf("Assistant:")
+
+                // Extract the text after the last "Assistant:"
+                const textAfterAssistant =
+                  lastIndex !== -1
+                    ? data.slice(lastIndex + "Assistant:".length, -1)
+                    : data
+                // Create a new message element for the chatbot response
+                const chatbotMessageElement = document.createElement("div")
+                chatbotMessageElement.classList.add(
+                  "message",
+                  "my-2",
+                  "bg-info",
+                  "text-white",
+                  "w-75"
+                )
+                chatbotMessageElement.innerText =
+                  "Chatbot:" + textAfterAssistant
+                chatContainer.appendChild(chatbotMessageElement)
+
+                // Clear the input field
+                document.getElementById("user-message").value = ""
+                updatedHistory +=
+                  "\n User: " + userMessage + "\n Assistant:" + data
+
+                // Re-enable the send button
+                toggleSendButtonState(true)
+              })
+              .catch((error) => {
+                console.error("Error:", error)
+
+                // Re-enable the send button in case of an error
+                toggleSendButtonState(true)
+              })
+          }
+        })
+    </script>
+    <!-- CDN for Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"></script>
+  </body>
+</html>
