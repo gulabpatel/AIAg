@@ -16,6 +16,6 @@
 ![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/13_LiveStockCounting_app/Pig_output.jpg)
 
 ## Dogs Pose estimation
-![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/02_NutritionDeficiency_Det_app/Dog_Keypints_description.PNG)
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/15_CattleMonitoring_app/Dog/Dog_Keypints_description.PNG)
 
-![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/02_NutritionDeficiency_Det_app/Dog_pose.PNG)
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/15_CattleMonitoring_app/Dog/Dog_pose.PNG)
