@@ -84,10 +84,21 @@ Models: SuperResolution
 
 How to start?
 
-1. Prepear your input imagery data, generate true-ortho with ArcGIS Reality for best accuracy.
+1. Prepear your input imagery data, and generate true-ortho with ArcGIS Reality for best accuracy.
 2. ArcGIS API for Python + arcgis.learn module - Functions for calling the Deep Learning Tools
 https://lnkd.in/dCfsifZh
 3. Explore and test pre-trained models - ArcGIS Living Atlas
 https://lnkd.in/dQsE5FXp
-4. Use ArcGIS tools to improve or train own models (see guide in each DLPK)
+4. Use ArcGIS tools to improve or train your own models (see guide in each DLPK)
 5. Build own Apps & Solutions
+
+# Application of AI in Agriculture
+
+1. [Crop and soil monitoring](https://www.v7labs.com/blog/ai-in-agriculture#h1)
+2. [Insect and plant disease detection](https://www.v7labs.com/blog/ai-in-agriculture#h2)
+3. [Livestock health monitoring](https://www.v7labs.com/blog/ai-in-agriculture#h3)
+4. [Intelligent spraying](https://www.v7labs.com/blog/ai-in-agriculture#h4)
+5. [Automatic weeding](https://www.v7labs.com/blog/ai-in-agriculture#h5)
+6. [Aerial survey and imaging](https://www.v7labs.com/blog/ai-in-agriculture#h6)
+7. [Produce grading and sorting](https://www.v7labs.com/blog/ai-in-agriculture#h7)
+8. [The future of AI in Agriculture: Farmers as AI engineers?](https://www.v7labs.com/blog/ai-in-agriculture#h8)
