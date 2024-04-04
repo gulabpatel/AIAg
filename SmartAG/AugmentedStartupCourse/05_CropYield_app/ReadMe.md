@@ -7,27 +7,32 @@ https://open.canada.ca/data/en/dataset/754a5961-0d27-406c-b5e3-224b6e494e9e/reso
 Follow the instructions in the tutorial for data cleaning and EDA
 
 Install the following packages:
+```python
 pip install pandas gmplot 
-
+```
 ## For forecasting and running the backend
 create a conda environment by conda create -n 'name of your environment' python=3.9
 then activate this environment in backend directory
 
 ## For backend
+```python
 pip install matplotlib numpy scikit-learn geopy tensorflow
 pip install langchain openai tiktoken
 pip install flask Flask-cors
-
+```
 Run the backend using the following command:
+```python
 python app.py
-
+```
 
 ## For frontend:
 Open a separate terminal.
 If you are building from scratch:
 npx create-react-app frontend
 If you are using the boiler code:
+```bash
 npm install
 Run the frontend app using the command:
 Npm start
+```
 
