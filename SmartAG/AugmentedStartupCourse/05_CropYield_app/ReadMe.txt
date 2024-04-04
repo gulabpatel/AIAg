@@ -1,3 +1,4 @@
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/05_CropYield_app/CropYieldPrediction.PNG)
 ## For Exploratory Data Analysis
 
 Download the dataset from the link below 
