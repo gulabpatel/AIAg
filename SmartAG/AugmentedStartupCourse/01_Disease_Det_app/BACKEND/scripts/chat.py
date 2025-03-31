@@ -5,7 +5,7 @@ from langchain.chains import LLMChain
 OPEN_API_KEY = ""
 model_name = 'gpt-3.5-turbo'
 #model_name = 'gpt-4'
-OPEN_API_KEY='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'
+OPEN_API_KEY='XXXX'
 llm = ChatOpenAI(model_name=model_name, temperature=0.3, openai_api_key=OPEN_API_KEY )
 
 
