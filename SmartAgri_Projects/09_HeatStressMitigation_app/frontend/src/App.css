@@ -1,0 +1,382 @@
+body {
+  background: linear-gradient(-35deg, #000428 0%, #004e92);
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+.App {
+  max-width: 90%; /* Or any percentage or fixed width you prefer */
+  margin: 0 auto; /* Centers the container */
+  padding: 20px; /* Adds some padding inside the container */
+}
+
+.map-container {
+  width: 100%;
+  height: 30vh;
+  border: 1px solid #ccc;  /* A light border around the map */
+  border-radius: 8px; /* Rounded corners for aesthetics */
+  overflow: hidden;
+  margin: 1em 0; /* Adds some margin above and below the map */
+  /* margin: 20px; */
+}
+
+.search-bar {
+  width: calc(100% - 10px);
+  /* height: 2.5vh;  */
+  padding: 10px 0px 10px 10px; 
+  margin: 1em 0; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+  font-size: 1rem; 
+  outline: none;
+  /* font-family: 'Poppins', Arial, sans-serif !important; */
+}
+
+.search-bar:focus {
+  border-color: #007bff; /* Changes border color when focused */
+  box-shadow: 0 2px 4px rgba(0,123,255,0.3); /* More prominent shadow when focused */
+}
+
+.logo-img {
+  width: 30%;
+  margin: 0 auto;
+  display: block;
+}
+
+.app-container {
+  max-width: 95%;
+  width: 100%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 1rem 0 3rem;
+  margin-bottom: 1rem;
+  border-radius: none;
+  box-shadow: none;
+}
+
+@media (min-width: 600px) {
+  .app-container {
+    max-width: 80%;
+    border-radius: 0 0 1rem 1rem;
+    box-shadow: rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px;
+  }
+}
+
+@media (min-width: 900px) {
+  .app-container {
+    max-width: 1100px;
+  }
+}
+
+.app-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 500px;
+}
+
+.logo-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 10px;
+}
+
+.logo-typography {
+  font-size: 20px;
+  color: rgba(255,255,255, 1);
+  font-family: Poppins;
+  text-align: center;
+  margin: 2rem 0;
+  max-width: 80%;
+  line-height: 22px;
+}
+
+.app-typography {
+  font-size: 12px;
+  color: rgba(255,255,255, .85);
+  font-family: Poppins;
+  text-align: center;
+  margin: 2rem 0;
+  max-width: 80%;
+  line-height: 22px;
+}
+
+@media (min-width: 600px) {
+  .app-typography {
+    font-size: 14px;
+  }
+}
+
+
+
+.loading-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  min-height: 500px;
+}
+
+.loading-typography {
+  font-size: 10px;
+  color: rgba(255, 255, 255, .8);
+  line-height: 1;
+  font-family: Poppins;
+}
+
+@media (min-width: 600px) {
+  .loading-typography {
+    font-size: 12px;
+  }
+}
+
+.error-box {
+  margin: 3rem auto;
+  display: flex; /* If you use flex here */
+  /* Additional error box styles */
+}
+
+.controls-container {
+  flex: 1;
+  max-width: calc(100% - 10px);
+  padding: 10px;
+  display: flex;
+  align-items: flex-start;
+}
+
+
+.crop-type-text {
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.crop-select {
+  width: 90%; /* Increased width */
+  height: 40px;
+  margin-left: 10px;
+}
+
+.reset-crop-button {
+  align-self: center;
+  margin: 10px auto;
+  padding: 6px 16px; 
+  max-width: 180px;
+  display: block;
+  color: #fff; 
+  text-align: center;
+  transition: background-color 0.3s ease; 
+}
+
+.reset-crop-button:hover {
+  background-color: #00574b; /* Slightly darker shade for hover effect */
+}
+
+@keyframes openChatbot {
+  from {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+@keyframes closeChatbot {
+  from {
+    transform: scale(1);
+    opacity: 1;
+  }
+  to {
+    transform: scale(0.1);
+    opacity: 0;
+  }
+}
+
+.appBar {
+  width: 100%;
+  height: 10%;
+  background-color: #004e92; /* Matching the brighter blue from your gradient */
+  color: #fff; /* White text color for contrast */
+  box-shadow: none; /* Removing the default shadow for a flatter look */
+  margin-bottom: 10px;
+  border-radius: 15px 15px 0px 0px;
+}
+
+.toolbar {
+  justify-content: flex-start; /* Align items to the start of the toolbar */
+}
+
+.chatbot-container {
+  background-color: #F8F8F8;
+  border-radius: 3%;
+  height: 50vh;
+  width: 21vw;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  bottom: 80px;
+  right: 80px; 
+  transform-origin: bottom right;
+  opacity: 0;
+  box-shadow: rgba(0,0,0, 0.5) 0px 10px 15px -3px, rgba(0,0,0, 0.5) 0px 4px 6px -2px;
+}
+
+.chatbot-container.visible {
+  animation: openChatbot 0.5s forwards;
+}
+
+.chatbot-container.hidden {
+  animation: closeChatbot 0.5s forwards;
+}
+
+
+.floating-button {
+  position: fixed;
+  left: 100%;
+  z-index: 1000;
+  padding: 10px 15px;
+  background-color: #ccc;
+  color: white;
+  border: none;
+  border-radius: 50%; 
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
+  cursor: pointer;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.floating-button:hover {
+  background-color: #0056b3; /* Darker shade when hovered */
+  box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.3); /* Larger shadow on hover */
+}
+
+.floating-button:focus {
+  outline: none; /* Remove outline on focus */
+}
+
+
+.chat-history {
+  flex: 1;
+  overflow-y: auto;  
+  max-height: 50vh; 
+  margin-bottom: 10px;
+  padding: 10px;  
+  display: flex;
+  flex-direction: column;
+  gap: 5px; 
+}
+
+/* Generic styles for both user and bot messages */
+.user-message, .bot-message {
+  border-radius: 15px;
+  padding: 8px 12px;
+  max-width: 70%; 
+  word-wrap: break-word;
+}
+
+/* Styles specific to user messages */
+.user-message {
+  align-self: flex-end;
+  background-color: #DCF8C6;  
+  border-bottom-right-radius: 0;
+  margin-left: 30%; 
+}
+
+/* Styles specific to bot messages */
+.bot-message {
+  align-self: flex-start;
+  background-color: #ECECEC;  
+  border-bottom-left-radius: 0;
+  margin-right: 30%; 
+}
+
+/* Colors for text inside bubbles */
+.user-message span {
+  color: #000;
+  text-align: left;
+  display: block; 
+}
+
+.bot-message span {
+  color: #000;
+  text-align: left;
+  display: block; 
+}
+
+
+.chatbot-container > div:last-child {
+  margin-top: 10px; 
+  gap: 5px; 
+}
+
+.bot-chart-message {
+  display: flex;
+  justify-content: center;
+  padding: 10px; 
+  margin-right: 30%; 
+  width: 100%; 
+}
+
+.bot-selector-message {
+  display: flex;
+  width: 65%; 
+}
+
+@keyframes dotBounce {
+  0%, 20%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+.typing-indicator {
+  display: inline-block;
+  position: relative;
+  width: 30px;
+  height: 10px;
+  margin: 5px;
+}
+
+.typing-indicator span {
+  position: absolute;
+  top: 0;
+  width: 8px;
+  height: 8px;
+  margin-right: 3px;
+  background: #000; /* You can change this to fit bot message text color */
+  border-radius: 50%;
+  animation: dotBounce 1.4s infinite;
+}
+
+.typing-indicator span:nth-child(1) {
+  left: 0;
+}
+
+.typing-indicator span:nth-child(2) {
+  left: 10px;
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  left: 20px;
+  animation-delay: 0.4s;
+}
+
+.input-box{
+  margin: 20px;
+  /* border: 1px solid #ccc; */
+}
+.input-text{
+  color:white
+}
