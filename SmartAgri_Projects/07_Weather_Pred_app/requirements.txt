@@ -1,0 +1,8 @@
+embedchain==0.0.69
+geopy==2.4.0
+Pillow<10
+python-dotenv==1.0.0
+python_docx==0.8.11
+Requests==2.31.0
+streamlit==1.27.0
+streamlit_chat==0.1.1
