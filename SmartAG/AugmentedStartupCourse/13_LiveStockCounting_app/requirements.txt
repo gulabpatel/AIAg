@@ -1,4 +1,0 @@
-transformers
-inference
-streamlit
-torch

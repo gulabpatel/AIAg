@@ -1,4 +1,0 @@
-python -m venv drought 
-drought\Scripts\activate
-pip install -r requirements.txt
-uvicorn main:app --reload
