@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Patil Agrotech</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style/myhome.css')}}">
+  </head>
+  <body>
+    <header>
+      <!-- <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </nav> -->
+    </header>
+    <main>
+      <h1>Your Crop Recommender</h1>
+      <p style="color: black;">Hope you are doing great and earing well on your farm
+      Here some suggetions for your crop cultivation. 
+      It recommends you to which crop you should grow in your farm for better yields. It utilize your soil nutrients 
+      soil nutrients and weather conditions.</p>
+      <br>
+      <h3 style="color: black;">Let's Start New Journey With Crop Recommender</h3>
+      <br>
+      <h2 style="color: black;">Click following button for Crop recommandation</h2>
+    </main>
+     <form action="/Predict">
+      <input type="submit" id="Predict" name="Predict" action="/Predict" value="Predict">
+     </form>
+  </body>
+</html>
