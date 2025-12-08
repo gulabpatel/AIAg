@@ -1,4 +1,4 @@
-![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/08_PestPrediction_app/PestPrediction.PNG)﻿
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAgri_Projects/08_PestPrediction_app/PestPrediction.PNG)﻿
 # Weather-Based Pest Prediction Application Documentation
 
 ## **Introduction**
