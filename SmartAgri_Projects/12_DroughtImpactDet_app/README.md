@@ -1,0 +1,1 @@
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAgri_Projects/12_DroughtImpactDet_app/Multiclass_ROC_curve_for_Decision_Tree_without_resampling_After_Hyperparameter_Tuning.png)
