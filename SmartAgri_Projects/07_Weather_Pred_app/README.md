@@ -1,1 +1,1 @@
-![](https://github.com/gulabpatel/AIAg/blob/main/SmartAG/AugmentedStartupCourse/07_Weather_Pred_app/WeatherPrediction.PNG)
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAgri_Projects/07_Weather_Pred_app/WeatherPrediction.PNG)
