@@ -1,4 +1,4 @@
-![](https://github.com/gulabpatel/AIAg/blob/main/SmartAgri_Projects/06_WeedDetection_app/Model%20Training/runs/detect/train/train_batch2.jpg)
+![](https://github.com/gulabpatel/AIAg/blob/main/SmartAgri_Projects/06_WeedDetection_app/ModelTraining/runs/detect/train/train_batch2.jpg)
 
 ## For Model training:
 pip install ultralytics
