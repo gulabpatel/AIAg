@@ -10,6 +10,7 @@ A nice collection of free #GIS data sources "10 𝐅𝐫𝐞𝐞 𝐆𝐈𝐒 �
 8. 𝐍𝐀𝐒𝐀 𝐄𝐚𝐫𝐭𝐡 𝐎𝐛𝐬𝐞𝐫𝐯𝐚𝐭𝐢𝐨𝐧𝐬 (𝐍𝐄𝐎): https://neo.gsfc.nasa.gov
 9. 𝐒𝐞𝐧𝐭𝐢𝐧𝐞𝐥 𝐒𝐚𝐭𝐞𝐥𝐥𝐢𝐭𝐞 𝐃𝐚𝐭𝐚: https://lnkd.in/dJmAy47y
 10. 𝐓𝐞𝐫𝐫𝐚 𝐏𝐨𝐩𝐮𝐥𝐮𝐬: https://terra.ipums.org
+    
 𝐑𝐞𝐚𝐝 𝐭𝐡𝐞 𝐟𝐮𝐥𝐥 𝐚𝐫𝐭𝐢𝐜𝐥𝐞 𝐡𝐞𝐫𝐞: https://lnkd.in/dFbCFwcK
 ![DataSource](https://github.com/gulabpatel/AIAg/blob/main/GIS_datasource.jpeg?raw=true)
 
